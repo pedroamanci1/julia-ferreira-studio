@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Mim | Julia Ferreira Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --branco: #fafafa;
+      --preto: #1a1a1a;
+      --dourado: #c9a962;
+      --dourado-claro: #e5d4a1;
+      --dourado-escuro: #a68b4a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #ffffff;
+      color: var(--preto);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .page-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid rgba(201, 169, 98, 0.35);
+      backdrop-filter: blur(8px);
+    }
+
+    .page-header__logo {
+      display: block;
+      height: 48px;
+      width: auto;
+    }
+
+    .page-header__logo img {
+      height: 100%;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .page-header__nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .page-header__nav a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--preto);
+      text-decoration: none;
+      transition: color 0.25s ease, border-color 0.25s ease;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+    }
+
+    .page-header__nav a:hover,
+    .page-header__nav a:focus {
+      color: var(--dourado-escuro);
+      border-bottom-color: var(--dourado-escuro);
+    }
+
+    @media (min-width: 600px) {
+      .page-header {
+        padding: 1.25rem 2rem;
+      }
+      .page-header__logo {
+        height: 52px;
+      }
+      .page-header__nav {
+        gap: 2rem;
+      }
+      .page-header__nav a {
+        font-size: 0.95rem;
+      }
+    }
+
+    .page-content {
+      padding: 8rem 1.5rem 4rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .sobre-hero {
+      display: flex;
+      flex-direction: column;
+      gap: 2.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .sobre-foto {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      padding: 0.75rem;
+      background: #ffffff;
+      border: 2px solid rgba(201, 169, 98, 0.5);
+      border-radius: 4px;
+      box-shadow:
+        0 4px 20px rgba(26, 26, 26, 0.08),
+        0 0 0 1px rgba(26, 26, 26, 0.04) inset;
+    }
+
+    .sobre-foto img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .sobre-hero-texto {
+      flex: 1;
+    }
+
+    @media (min-width: 768px) {
+      .sobre-hero {
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .sobre-foto {
+        max-width: 320px;
+        margin: 0;
+        padding: 1rem;
+        border-width: 2px;
+        box-shadow:
+          0 8px 32px rgba(26, 26, 26, 0.1),
+          0 0 0 1px rgba(26, 26, 26, 0.06) inset;
+      }
+    }
+
+    .sobre-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dourado-escuro);
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
+    .sobre-hero .sobre-titulo {
+      text-align: left;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sobre-texto {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--preto);
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .sobre-texto:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .sobre-subtitulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--preto);
+      margin-top: 2.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .sobre-lista {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .sobre-lista li {
+      position: relative;
+      padding-left: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--preto);
+    }
+
+    .sobre-lista li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 6px;
+      height: 6px;
+      background: var(--dourado);
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <a href="index.html" class="page-header__logo" aria-label="Julia Ferreira Studio - Página inicial">
+      <img src="logo-removebg-preview.png" alt="Julia Ferreira Studio">
+    </a>
+    <nav class="page-header__nav" aria-label="Navegação principal">
+      <a href="index.html">Home</a>
+      <a href="sobre-mim.html">Sobre Mim</a>
+    </nav>
+  </header>
+
+  <main class="page-content">
+    <div class="sobre-hero">
+      <div class="sobre-foto">
+        <img src="sobre mim.png" alt="Julia Ferreira - Maquiadora profissional em São José dos Campos">
+      </div>
+      <div class="sobre-hero-texto">
+        <h1 class="sobre-titulo">Minha história</h1>
+        <p class="sobre-texto">
+          Sou Julia Ferreira, maquiadora profissional em São José dos Campos. Minha trajetória na maquiagem começou com a vontade de realçar a beleza de cada pessoa e transformar momentos especiais em memórias ainda mais marcantes. Formada pela escola Senac em maquiagem profissional, investi em cursos de aperfeiçoamento com profissionais renomados do mercado para oferecer um serviço de excelência às minhas clientes.
+        </p>
+        <p class="sobre-texto">
+          Atuo na região do Vale do Paraíba com base no Julia Ferreira Studio, no Jardim América, mas também atendo em outras cidades de São Paulo e fora do estado, levando maquiagem e cabelo para noivas, debutantes e quem busca uma produção completa para eventos.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="sobre-subtitulo">O que faço</h2>
+    <p class="sobre-texto">
+      Meu trabalho une maquiagem e penteados com foco em beleza para noivas e eventos. Acredito que a maquiagem vai além da estética: ela reforça a autoestima e a confiança, especialmente no dia mais importante. Por isso, dedico tempo a entender o estilo e o desejo de cada cliente para criar um look que combine com a personalidade e com a ocasião.
+    </p>
+
+    <h2 class="sobre-subtitulo">Como trabalho</h2>
+    <p class="sobre-texto">
+      O atendimento é pensado para ser tranquilo e personalizado. Ofereço <strong>teste prévio de maquiagem e penteado</strong>, para que você já conheça o resultado antes do grande dia, além de <strong>consultoria</strong> para definir o visual, escolher vestido, véu e acessórios. Também realizo <strong>atendimento a domicílio</strong>, para você se preparar no conforto de casa. O agendamento pode ser feito pelo site ou pelo WhatsApp, de forma prática e rápida.
+    </p>
+
+    <h2 class="sobre-subtitulo">Especializações</h2>
+    <ul class="sobre-lista">
+      <li>Maquiagem e penteados para noivas</li>
+      <li>Produção para eventos e festas</li>
+      <li>Testes prévios de look (maquiagem e cabelo)</li>
+      <li>Consultoria de maquiagem e penteado</li>
+      <li>Auxílio com vestido, véu e acessórios</li>
+      <li>Atendimento no estúdio (Rua Rosário, 661, Jardim América) e a domicílio</li>
+    </ul>
+
+    <p class="sobre-texto">
+      Seja para o seu casamento, formatura, aniversário ou qualquer data especial, estou à disposição para cuidar da sua beleza com carinho e profissionalismo. Agende seu horário pelo <a href="index.html" style="color: var(--dourado-escuro); text-decoration: underline;">site</a> ou entre em contato pelo WhatsApp — adorarei fazer parte do seu dia.
+    </p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Ambiente virtual Python (se existir)
+.venv/
+venv/
+__pycache__/
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+*.swo
