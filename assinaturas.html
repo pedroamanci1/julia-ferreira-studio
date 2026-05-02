@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso profissionalizante | Julia Ferreira Studio</title>
+  <title>Assinaturas | Julia Ferreira Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
@@ -146,71 +146,145 @@
       .page-header__nav a { font-size: 0.9rem; }
     }
     .page-content {
-      padding: 7rem 1.5rem 4rem;
-      max-width: 720px;
+      padding: 8rem 1.5rem 4rem;
+      max-width: 960px;
       margin: 0 auto;
     }
-    .page-content h1 {
+    .pagina-titulo {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 5vw, 2.75rem);
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--dourado-escuro);
-      margin-bottom: 1.75rem;
-    }
-    .page-content h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: var(--preto);
-      margin-top: 2rem;
       margin-bottom: 0.75rem;
+      text-align: center;
     }
-    .page-content p {
+    .page-content > .intro {
       font-size: 1.05rem;
-      line-height: 1.85;
-      margin-bottom: 1rem;
-      text-align: justify;
-    }
-    .page-content ul {
-      margin: 0 0 1.25rem 1.25rem;
       line-height: 1.75;
-      font-size: 1.05rem;
+      text-align: center;
+      max-width: 36rem;
+      margin: 0 auto 2.5rem;
+      color: var(--preto);
     }
-    .page-content li { margin-bottom: 0.4rem; }
-    .cta-box {
-      margin-top: 2.5rem;
+    .assinaturas-lista {
+      display: grid;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    @media (min-width: 640px) {
+      .assinaturas-lista { grid-template-columns: repeat(2, 1fr); }
+      .assinatura-card__visual { max-height: min(calc(34vw * 1.2), 408px); }
+    }
+    .assinatura-card {
+      display: flex;
+      flex-direction: column;
       padding: 1.75rem;
       border: 1px solid rgba(201, 169, 98, 0.45);
       background: rgba(201, 169, 98, 0.06);
+      border-radius: 4px;
+      min-height: 100%;
     }
-    .cta-box p { margin-bottom: 1.25rem; text-align: left; }
-    .btn-whatsapp {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      padding: 1rem 1.75rem;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
+    .assinatura-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
       color: var(--preto);
-      background: var(--dourado);
-      border: 2px solid var(--dourado);
-      transition: all 0.3s ease;
+      margin: 0 0 0.75rem;
     }
-    .btn-whatsapp:hover,
-    .btn-whatsapp:focus {
-      background: var(--dourado-claro);
-      border-color: var(--dourado-claro);
+    .assinatura-card p {
+      font-size: 1rem;
+      line-height: 1.75;
+      margin: 0 0 1.25rem;
+      flex: 1;
+      text-align: left;
+    }
+    .assinatura-card--link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .assinatura-card--link:hover,
+    .assinatura-card--link:focus-visible {
+      border-color: var(--dourado-escuro);
+      box-shadow: 0 8px 28px rgba(201, 169, 98, 0.25);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(201, 169, 98, 0.35);
+      outline: none;
     }
-    .btn-whatsapp svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .assinatura-card--com-midia {
+      padding: 0;
+      overflow: hidden;
+    }
+    .assinatura-card__visual {
+      position: relative;
+      aspect-ratio: 2 / 3;
+      max-height: min(calc(58vw * 1.2), 360px);
+      flex-shrink: 0;
+      overflow: hidden;
+      background: rgba(201, 169, 98, 0.15);
+    }
+    .assinatura-card__visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 45%,
+        rgba(250, 250, 250, 0.65) 88%,
+        rgba(250, 250, 250, 0.96) 100%
+      );
+      pointer-events: none;
+    }
+    .assinatura-card__visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .assinatura-card--link:hover .assinatura-card__visual img,
+    .assinatura-card--link:focus-visible .assinatura-card__visual img {
+      transform: scale(1.035);
+    }
+    .assinatura-card__body {
+      padding: 1.35rem 1.75rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+    }
+    .assinatura-card--com-midia h2 {
+      margin-top: 0;
+    }
+    .assinatura-card--com-midia .assinatura-card__cta {
+      margin-top: auto;
+      padding-top: 0.25rem;
+    }
+    .assinatura-card__cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dourado-escuro);
+      margin-top: auto;
+    }
+    .assinatura-card--estatico {
+      opacity: 0.92;
+    }
+    .assinatura-card--estatico .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dourado-escuro);
+      margin-top: auto;
+    }
   </style>
 </head>
 <body>
@@ -225,50 +299,38 @@
     <nav id="menu-principal" class="page-header__nav" aria-label="Navegação principal">
       <a href="index.html">Home</a>
       <a href="sobre-mim.html">Sobre Mim</a>
-      <a href="curso-profissionalizante.html" aria-current="page">Curso profissional</a>
+      <a href="curso-profissionalizante.html">Curso profissional</a>
       <a href="automaquiagem.html">Automaquiagem</a>
       <a href="dia-da-noiva.html">Dia da noiva</a>
-      <a href="assinaturas.html">Assinaturas</a>
+      <a href="assinaturas.html" aria-current="page">Assinaturas</a>
     </nav>
   </header>
 
   <main class="page-content">
-    <h1>Curso profissionalizante</h1>
+    <h1 class="pagina-titulo">Assinaturas</h1>
+    <p class="intro">Planos e produtos recorrentes do estúdio.</p>
 
-    <p>
-      O curso profissionalizante do Julia Ferreira Studio é uma imersão prática em maquiagem para quem deseja atuar com segurança no mercado de beleza, com foco em produções para noivas, eventos e fotografia — o mesmo universo que você acompanha no <a href="https://www.instagram.com/juliaferreira.makeup/" target="_blank" rel="noopener noreferrer" style="color: var(--dourado-escuro);">Instagram</a> e no <a href="https://www.tiktok.com/@juliaferreira.makeup" target="_blank" rel="noopener noreferrer" style="color: var(--dourado-escuro);">TikTok</a>, com técnicas atuais e linguagem profissional.
-    </p>
-
-    <h2>Como funciona</h2>
-    <p>
-      O curso pode ser realizado em <strong>um dia intensivo</strong> ou em <strong>dois dias</strong>, conforme a profundidade que você quiser dar a cada módulo. Há momentos de explicação técnica, demonstração ao vivo e prática supervisionada, para você sair com a mão treinada e um roteiro claro de atendimento. A carga e o cronograma exatos são combinados na inscrição, alinhados ao que faz sentido para o seu momento — inclusive com possibilidade de encaixar conteúdos que você já viu nas redes e quer dominar na prática.
-    </p>
-
-    <h2>Para quem é indicado</h2>
-    <ul>
-      <li>Quem está começando e quer entrar no mercado de maquiagem profissional com base sólida;</li>
-      <li>Quem já se maquia ou atende amigas e deseja <strong>profissionalizar</strong> o atendimento e cobrar com segurança;</li>
-      <li>Profissionais que atuam em salões ou estúdios e querem <strong>atualizar técnicas</strong> de pele, olhos e acabamento para noiva e evento;</li>
-      <li>Quem pretende usar o Instagram e o portfólio como vitrine e precisa de consistência técnica nas fotos e vídeos.</li>
+    <ul class="assinaturas-lista">
+      <li>
+        <a class="assinatura-card assinatura-card--link assinatura-card--com-midia" href="https://buy.stripe.com/3cI14n2lHaPU51M8hNeEo20" target="_blank" rel="noopener noreferrer">
+          <div class="assinatura-card__visual">
+            <img src="gi.png" alt="Retrato com maquiagem e penteado profissionais — maquiagem e cabelo do estúdio" width="600" height="750" loading="lazy" decoding="async">
+          </div>
+          <div class="assinatura-card__body">
+            <h2>Maquiagem e Penteado - 4 vezes por ano</h2>
+            <p>Tenha direito a realizar o serviço de maquiagem e penteado em 4 ocasiões nos próximos 12 meses. Fique à vontade para usar em qualquer momento. O horário e a data dependem da disponibilidade no dia do agendamento.</p>
+            <span class="assinatura-card__cta">Assinar Já</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <article class="assinatura-card assinatura-card--estatico">
+          <h2>Mais planos</h2>
+          <p>Novas assinaturas e pacotes serão listados aqui em breve.</p>
+          <span class="badge">Em breve</span>
+        </article>
+      </li>
     </ul>
-
-    <h2>Vantagens de fazer o curso aqui</h2>
-    <ul>
-      <li>Aprendizado com quem vive o dia a dia do estúdio e do <strong>autoagendamento</strong> de clientes reais;</li>
-      <li>Foco em looks que vendem bem em casamentos e festas — natural, glam e tendências que performam nas redes;</li>
-      <li>Orientação sobre organização do kit, higiene, tempo de produção e comunicação com a cliente;</li>
-      <li>Mais confiança para orçar, fotografar o trabalho e divulgar com coerência com a sua marca.</li>
-    </ul>
-
-    <div class="cta-box">
-      <p><strong>Investimento e próximas turmas</strong> — os valores e as datas são informados diretamente pelo WhatsApp, porque dependem de turma fechada, carga horária (1 ou 2 dias) e materiais inclusos.</p>
-      <a href="https://l.instagram.com/?u=https%3A%2F%2Fwa.me%2F5512991449507%3Ffbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn14NW3ysw9byNl1RNJ5TqcDd0WbJPN4gGRuMUT3RtIQaFFtjI-tDodQ7d5tg_aem_21PJ68WyD7gtMzTwBg5wPA&e=AT6VmanbOwi7sP71HTRyOi2ZpMKIB_skJxjuXUE4i9SwP0V-ZtktiG0RE-QyuFe9GCap0UWDt6pLw_rgG1NfwO-cYF1jc-mMTE4JE_AaJw" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        Falar no WhatsApp e saber o preço
-      </a>
-    </div>
   </main>
   <script>
     (function () {
