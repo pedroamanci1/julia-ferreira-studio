@@ -177,7 +177,6 @@
     }
     @media (min-width: 640px) {
       .assinaturas-lista { grid-template-columns: repeat(2, 1fr); }
-      .assinatura-card__visual { max-height: min(calc(34vw * 1.2), 408px); }
     }
     .assinatura-card {
       display: flex;
@@ -218,14 +217,24 @@
     .assinatura-card--com-midia {
       padding: 0;
       overflow: hidden;
+      container-type: inline-size;
+      container-name: plano-card;
     }
     .assinatura-card__visual {
       position: relative;
+      width: 100%;
       aspect-ratio: 2 / 3;
-      max-height: min(calc(58vw * 1.2), 360px);
+      max-height: 408px;
       flex-shrink: 0;
       overflow: hidden;
       background: rgba(201, 169, 98, 0.15);
+    }
+    @supports (height: min(1px, 1cqw)) {
+      .assinatura-card__visual {
+        aspect-ratio: unset;
+        max-height: none;
+        height: min(408px, calc(100cqw * 3 / 2));
+      }
     }
     .assinatura-card__visual::after {
       content: "";
